@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ndelaSabrina25.github.io/ndelaSabrina25/sitemap.xml
