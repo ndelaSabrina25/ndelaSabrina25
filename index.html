@@ -222,6 +222,44 @@
       text-decoration: underline;
     }
 
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      background: white;
+      border: 1px solid #e2e9f3;
+      border-radius: 12px;
+      box-shadow: 0 5px 18px rgba(16, 43, 82, 0.05);
+    }
+
+    .gallery-card img {
+      display: block;
+      width: 100%;
+      height: 165px;
+      object-fit: cover;
+      background: #e8f1fc;
+    }
+
+    .gallery-card div {
+      padding: 16px;
+    }
+
+    .gallery-card h3 {
+      color: #1557a5;
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .gallery-card p {
+      color: #536277;
+      font-size: 14px;
+    }
+
     .contact-box {
       background: #e8f1fc;
       padding: 30px;
@@ -294,6 +332,7 @@
       <a href="#about">About</a>
       <a href="#education">Education</a>
       <a href="#skills">Skills</a>
+      <a href="#technology-gallery">Gallery</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -304,7 +343,7 @@
 
       <!-- Upload your photo to the repository as sabrina.jpg -->
       <img
-        src="sabrina.jpg"
+        src="./Sabrina.jpg"
         alt="Portrait of Sabrina Ndela"
         class="profile-photo"
         width="160"
@@ -413,6 +452,31 @@
           </p>
         </div>
 
+      </div>
+    </section>
+
+    <section id="technology-gallery">
+      <h2 class="section-title">Technology & My Work</h2>
+      <p class="section-intro">
+        A visual snapshot of the technology areas I enjoy learning about,
+        from networking and cybersecurity to software development.
+        These illustrative photos are hosted by Unsplash; they are not photos
+        of my personal work or certifications.
+      </p>
+
+      <div class="image-gallery">
+        <article class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Computer circuit board and electronic components" loading="lazy" width="900" height="600">
+          <div><h3>IT & Hardware</h3><p>Computer systems, troubleshooting and technical support.</p></div>
+        </article>
+        <article class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Cybersecurity themed digital network visualization" loading="lazy" width="900" height="600">
+          <div><h3>Cybersecurity</h3><p>Security awareness, monitoring and protecting digital systems.</p></div>
+        </article>
+        <article class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Laptop and digital work setup" loading="lazy" width="900" height="600">
+          <div><h3>Software & Web</h3><p>Building useful digital experiences and learning through projects.</p></div>
+        </article>
       </div>
     </section>
 
