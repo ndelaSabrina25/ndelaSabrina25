@@ -31,7 +31,104 @@
     }
 
     a {
-      transition: 0.2s ease;
+      transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .hero > * {
+      animation: fadeUp 0.75s ease both;
+    }
+
+    .hero .profile-photo {
+      animation: fadeUp 0.8s ease both, gentleFloat 4s ease-in-out 1s infinite;
+    }
+
+    .hero .tag { animation-delay: 0.12s; }
+    .hero h1 { animation-delay: 0.22s; }
+    .hero .hero-description { animation-delay: 0.32s; }
+    .hero .button { animation-delay: 0.42s; }
+
+    .card, .education, .project, .gallery-card, .contact-box {
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .card:hover, .education:hover, .project:hover, .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(16, 43, 82, 0.12);
+    }
+
+    .icon-tile {
+      min-height: 165px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #e8f1fc, #d6e9ff);
+      color: #1557a5;
+    }
+
+    .icon-tile svg {
+      width: 76px;
+      height: 76px;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover .icon-tile svg {
+      transform: scale(1.12) rotate(-3deg);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      background: #1557a5;
+      color: white !important;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-action:hover {
+      background: #102b52;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(16, 43, 82, 0.18);
+    }
+
+    .contact-action svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
     }
 
     header {
@@ -363,6 +460,7 @@
       <a class="button" href="#projects">Explore My Work</a>
       <a class="button button-outline"
          href="mailto:ndelaswabrina2@gmail.com">Contact Me</a>
+      <a class="button button-outline" href="https://wa.me/254769262393" target="_blank" rel="noopener noreferrer">WhatsApp Me</a>
 
     </section>
 
@@ -466,15 +564,21 @@
 
       <div class="image-gallery">
         <article class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Computer circuit board and electronic components" loading="lazy" width="900" height="600">
+          <div class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><rect x="9" y="12" width="46" height="32" rx="3"/><path d="M24 53h16M32 44v9M18 20h28M18 27h13"/><circle cx="43" cy="34" r="4"/><path d="M43 30v8M39 34h8"/></svg>
+          </div>
           <div><h3>IT & Hardware</h3><p>Computer systems, troubleshooting and technical support.</p></div>
         </article>
         <article class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Cybersecurity themed digital network visualization" loading="lazy" width="900" height="600">
+          <div class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><path d="M32 7 51 14v15c0 13-8 22-19 28C21 51 13 42 13 29V14Z"/><rect x="24" y="28" width="16" height="13" rx="2"/><path d="M27 28v-4a5 5 0 0 1 10 0v4M32 33v3"/></svg>
+          </div>
           <div><h3>Cybersecurity</h3><p>Security awareness, monitoring and protecting digital systems.</p></div>
         </article>
         <article class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Laptop and digital work setup" loading="lazy" width="900" height="600">
+          <div class="icon-tile" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="35" rx="3"/><path d="M3 53h58M25 45l-3 8M39 45l3 8M24 21l-7 7 7 7M40 21l7 7-7 7M35 19l-6 18"/></svg>
+          </div>
           <div><h3>Software & Web</h3><p>Building useful digital experiences and learning through projects.</p></div>
         </article>
       </div>
@@ -524,6 +628,11 @@
         </p>
 
         <p>
+          <strong>Phone:</strong>
+          <a href="tel:+254769262393">+254 769 262 393</a>
+        </p>
+
+        <p>
           <strong>Email:</strong>
           <a href="mailto:ndelaswabrina2@gmail.com">
             ndelaswabrina2@gmail.com
@@ -540,6 +649,17 @@
             github.com/ndelaSabrina25
           </a>
         </p>
+
+        <div class="contact-actions">
+          <a class="contact-action" href="tel:+254769262393">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.9L7.1 10.5a16 16 0 0 0 6.4 6.4l1.9-1.9a2 2 0 0 1 1.9-.6l3 .5a2 2 0 0 1 1.7 2Z"/></svg>
+            Call me
+          </a>
+          <a class="contact-action" href="https://wa.me/254769262393" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.8A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.5 8.2c.4 2.7 2.6 4.9 5.3 5.3l1.2-1.2 2 .7c-.2 1.4-1.2 2.1-2.6 2-3.6-.4-6.8-3.6-7.2-7.2-.1-1.4.6-2.4 2-2.6l.7 2Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
       </div>
     </section>
 
